@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<title>Welcome to CodeIgniter</title>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 		<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
 		
@@ -113,7 +114,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</tfoot>
 			</table>
 
+			<!-- Forms Container -->
+			<div style="display:inline">
+				<!-- Form to add users to the database -->
+				<form action="<?php echo site_url("welcome/add_new_person")?>" method="post" style="padding-left:20%;">
+					<div class="form-group" style="width:30%;">
+						<label for="AddTitleLabel">Add Person To Database</label><br/>
+						<label for="FirstNameLabel">First Name&nbsp;</label><input type="text" name="first_name"/><br/>
+						<label for="LastNameLabel">Last Name&nbsp;</label><input type="text" name="last_name"/><br/>
+						<label for="AgeLabel">Age&nbsp;</label><input type="number" name="age"/><br/>
+						<label for="AddIDLabel">ID&nbsp;</label><input type="number" name="id"/><br/>
+					</div>
 
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+
+				<!-- Form to remove user from the database by id -->
+				<form action="<?php echo site_url('welcome/remove_person')?>" method="post" style="padding-left:20%;">
+					<div class="form-group" style="width:30%;">
+						<label for="DeleteTitleLabel">Delete Person From Database</label><br/>
+						<label for="DeleteIDLabel">ID&nbsp;</label><input type="number" name="id"/><br/>
+					</div>
+
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+
+			<!-- Load the DataTables via jQuery -->
 			<script type="text/javascript">
 				$(document).ready(function(){
 					var dataTable = $('#main_table').DataTable({
