@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css"/>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 		<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
 		
@@ -77,19 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<body>
 		<div id="container">
-			<h1>Welcome to CodeIgniter!</h1>
-
-			<div id="body">
-				<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-				<p>If you would like to edit this page you'll find it located at:</p>
-				<code>application/views/welcome_message.php</code>
-
-				<p>The corresponding controller for this page is found at:</p>
-				<code>application/controllers/Welcome.php</code>
-
-				<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-			</div>
+			<h1>Welcome to Justins CodeIgniter DataTables Integration Project!</h1>
 
 			<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 
@@ -101,42 +90,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<th>Last Name</th>
 						<th>Age</th>
 						<th>Id</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 					
-				<tfoot>
-					<tr>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Age</th>
-						<th>Id</th>
-					</tr>
-				</tfoot>
 			</table>
 
 			<!-- Forms Container -->
 			<div style="display:inline">
 				<!-- Form to add users to the database -->
-				<form action="<?php echo site_url("welcome/add_new_person")?>" method="post" style="padding-left:20%;">
-					<div class="form-group" style="width:30%;">
-						<label for="AddTitleLabel">Add Person To Database</label><br/>
-						<label for="FirstNameLabel">First Name&nbsp;</label><input type="text" name="first_name"/><br/>
-						<label for="LastNameLabel">Last Name&nbsp;</label><input type="text" name="last_name"/><br/>
-						<label for="AgeLabel">Age&nbsp;</label><input type="number" name="age"/><br/>
-						<label for="AddIDLabel">ID&nbsp;</label><input type="number" name="id"/><br/>
+				<form action="<?php echo site_url("welcome/add_new_person")?>" method="post" style="margin-left:5%;margin-right:5%;">
+					<label for="AddTitleLabel">Add Person To Database:&nbsp;</label>	
+				
+					<div class="form-row">
+						<div class="col">
+							<input type="text" class="form-control" name="first_name" placeholder="First name"/>
+							<input type="text" class="form-control" name="last_name" placeholder="Last name"/>
+						</div>
 					</div>
 
-					<button type="submit" class="btn btn-primary">Submit</button>
-				</form>
-
-				<!-- Form to remove user from the database by id -->
-				<form action="<?php echo site_url('welcome/remove_person')?>" method="post" style="padding-left:20%;">
-					<div class="form-group" style="width:30%;">
-						<label for="DeleteTitleLabel">Delete Person From Database</label><br/>
-						<label for="DeleteIDLabel">ID&nbsp;</label><input type="number" name="id"/><br/>
+					<div class="form-row">
+						<div class="col">
+							<input type="text" class="form-control" name="age" placeholder="Age"/>
+							<input type="text" class="form-control" name="id" placeholder="Database ID"/>
+						</div>
 					</div>
 
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary">Add User</button>
+						</div>
+					</div>
 				</form>
 			</div>
 

@@ -29,12 +29,15 @@ class Welcome extends CI_Controller
         //create an array for appending each row of data to.
         $data = array();
 
+        $url = site_url("welcome/remove_person/");
+
         foreach($people->result() as $r) {
             $data[] = array(
                     $r->first_name,
                     $r->last_name,
                     $r->age,
-                    $r->id
+                    $r->id,
+                    '<a href="' . $url . $r->id . '"><i class="fa fa-trash delete-btn"/></a>'
             );
         }
 
@@ -75,10 +78,10 @@ class Welcome extends CI_Controller
     }
     
     //Removes a person from the database by id.
-    public function remove_person()
+    public function remove_person($id)
     {
         //Execute delete with id
-        $query = $this->dtm->delete_row($_POST['id']);
+        $query = $this->dtm->delete_row($id);
 
         if ($query)
         {
