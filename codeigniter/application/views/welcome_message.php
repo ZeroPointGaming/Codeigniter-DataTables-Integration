@@ -104,15 +104,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 					<div class="form-row">
 						<div class="col">
-							<input type="text" class="form-control" name="first_name" placeholder="First name"/>
-							<input type="text" class="form-control" name="last_name" placeholder="Last name"/>
+							<input type="text" class="form-control" name="first_name" placeholder="First name" required minlength="2" />
+							<input type="text" class="form-control" name="last_name" placeholder="Last name" required minlength="2" />
 						</div>
 					</div>
 
 					<div class="form-row">
 						<div class="col">
-							<input type="text" class="form-control" name="age" placeholder="Age"/>
-							<input type="text" class="form-control" name="id" placeholder="Database ID"/>
+							<input type="text" class="form-control" name="age" placeholder="Age" required minlength="1" />
+							<input type="text" class="form-control" name="id" placeholder="Database ID" required minlength="1" />
 						</div>
 					</div>
 
